@@ -11,11 +11,10 @@ module.exports = {
         browser.end()
     },
 
-    //enters a series of numbers, separated by commas, and verifies the results are displayed in the appropriate fields
+    //enters a series of numbers, separated by commas, and verifies that the results are displayed in the appropriate fields
     checkEvensAndOdds: browser => {
         //enters numbers, separated by a comma, into the 'evenOddInput' field
         browser.setValue(selectors.evenOddInput, data.inputs.evenOddInput);
-        //clicks the submit button
         browser.click(selectors.evenOddButton);
         //verifies results in the evens box
         browser.expect.element(selectors.evenResults).text.to.contain(data.outputs.evenResults);
@@ -68,6 +67,7 @@ module.exports = {
         browser.setValue(selectors.palindromeInput, data.inputs.palindromeInput[0]);
         browser.click(selectors.palindromeButton);
         browser.expect.element(selectors.palindromeResults).text.to.contain(data.outputs.palindromeResults[0]);
+
         //checks a nonpalindrome input
         browser.clearValue(selectors.palindromeInput);
         browser.setValue(selectors.palindromeInput, data.inputs.palindromeInput[1]);
@@ -84,10 +84,34 @@ module.exports = {
     //checks if the sum of two numbers is correct
     checkSum: browser => {
 
-        browser.setValue(selectors.sumInput1, data.inputs.sumInput1);
-        browser.setValue(selectors.sumInput2, data.inputs.sumInput2);
+        //checks the sum of two positive numbers
+        browser.setValue(selectors.sumInput1, data.inputs.sumInput1[0]);
+        browser.setValue(selectors.sumInput2, data.inputs.sumInput2[0]);
         browser.click(selectors.sumButton);
-        browser.expect.element(selectors.sumResults).text.to.contain(data.outputs.sumResults);
+        browser.expect.element(selectors.sumResults).text.to.contain(data.outputs.sumResults[0]);
+
+        //checks the sum if one of the numbers is negative
+        browser.clearValue(selectors.sumInput1);
+        browser.clearValue(selectors.sumInput2);
+        browser.setValue(selectors.sumInput1, data.inputs.sumInput1[1]);
+        browser.setValue(selectors.sumInput2, data.inputs.sumInput2[1]);
+        browser.click(selectors.sumButton);
+        browser.expect.element(selectors.sumResults).text.to.contain(data.outputs.sumResults[1]);
+
+        /*checks the sum if one of the fields is blank 
+        //Not working: Submit button does not click
+
+        browser.clearValue(selectors.sumInput1);
+        browser.clearValue(selectors.sumInput2);
+        browser.setValue(selectors.sumInput2, data.inputs.sumInput2[1]);
+        browser.pause(2000)
+
+        browser.click(selectors.sumButton);
+
+        browser.pause(2000)
+        browser.expect.element(selectors.sumResults).text.to.contain(data.inputs.sumInput2[1]);
+
+        */
     }
 
 }

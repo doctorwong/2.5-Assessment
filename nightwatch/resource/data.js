@@ -5,8 +5,8 @@ module.exports = {
         objectFilterInput: ['name', 'title', 'empty'],
         nameFilterInput: ['J', 'empty'],
         palindromeInput: ['abcba', 'abbcc'],
-        sumInput1: '5',
-        sumInput2: '5'
+        sumInput1: ['5', '5'],
+        sumInput2: ['5', '-7']
 
 
     },
@@ -22,6 +22,6 @@ module.exports = {
         nameFilterResults: ["[ \"James\", \"Jessica\", \"Jennifer\" ]",
         "Filtered Names: []"],
         palindromeResults: ['true', 'false', 'false'],
-        sumResults: '10'
+        sumResults: ['10','-2']
     }
 }
