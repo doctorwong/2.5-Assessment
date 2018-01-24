@@ -11,8 +11,9 @@ module.exports = {
         browser.end()
     },
 
-    //enters a series of numbers, separated by commas, and verifies that the results are displayed in the appropriate fields
     checkEvensAndOdds: browser => {
+    //enters a series of numbers, separated by commas, and verifies that the results are displayed in the appropriate fields
+        
         //enters numbers, separated by a comma, into the 'evenOddInput' field
         browser.setValue(selectors.evenOddInput, data.inputs.evenOddInput);
         browser.click(selectors.evenOddButton);
@@ -22,8 +23,8 @@ module.exports = {
         browser.expect.element(selectors.oddResults).text.to.contain(data.outputs.oddResults);
     },
 
-//filters objects by key name
     checkFilterObject: browser => {
+        //filters objects by key name
 
         //verifies all values for the key 'name'
         browser.setValue(selectors.objectFilterInput, data.inputs.objectFilterInput[0]);
@@ -44,8 +45,8 @@ module.exports = {
 
     },
     
-    //filters names to only those containing input characters
     checkFilterString: browser => {
+        //filters names to only those containing input characters
 
         //displays names containing 'J'
         browser.setValue(selectors.nameFilterInput, data.inputs.nameFilterInput[0]);
@@ -59,9 +60,9 @@ module.exports = {
         browser.expect.element(selectors.nameFilterResults).text.to.contain(data.outputs.nameFilterResults[1]);
      },
 
-    //submits an input and checks if it is a palindrome
-    //returns true if input is a palindrome, false otherwise
-    checkPalindrome: browser => {
+    checkPalindrome: browser => {   
+        //submits an input and checks if it is a palindrome
+        //returns true if input is a palindrome, false otherwise
 
         //checks a palindrome input
         browser.setValue(selectors.palindromeInput, data.inputs.palindromeInput[0]);
@@ -81,8 +82,8 @@ module.exports = {
 
     },
 
-    //checks if the sum of two numbers is correct
     checkSum: browser => {
+        //checks if the sum of two numbers is correct
 
         //checks the sum of two positive numbers
         browser.setValue(selectors.sumInput1, data.inputs.sumInput1[0]);
