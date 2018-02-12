@@ -98,21 +98,6 @@ module.exports = {
         browser.setValue(selectors.sumInput2, data.inputs.sumInput2[1]);
         browser.click(selectors.sumButton);
         browser.expect.element(selectors.sumResults).text.to.contain(data.outputs.sumResults[1]);
-
-        /*checks the sum if one of the fields is blank 
-        //Not working: Submit button does not click
-
-        browser.clearValue(selectors.sumInput1);
-        browser.clearValue(selectors.sumInput2);
-        browser.setValue(selectors.sumInput2, data.inputs.sumInput2[1]);
-        browser.pause(2000)
-
-        browser.click(selectors.sumButton);
-
-        browser.pause(2000)
-        browser.expect.element(selectors.sumResults).text.to.contain(data.inputs.sumInput2[1]);
-
-        */
     }
 
 }
