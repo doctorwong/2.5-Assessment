@@ -99,5 +99,4 @@ module.exports = {
         browser.click(selectors.sumButton);
         browser.expect.element(selectors.sumResults).text.to.contain(data.outputs.sumResults[1]);
     }
-
 }
